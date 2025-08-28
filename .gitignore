@@ -23,7 +23,6 @@ logs
 
 # Webstormは自動でTypeScriptコンパイルするが、このjsは不要
 client-app/src/server/**/*.js
-Meilisearch/meilisearch
 
 # Build Folders (you can keep bin if you'd like, to store dlls and pdbs)
 [Bb]in/
@@ -41,4 +40,6 @@ Meilisearch/meilisearch
 Scratch/
 
 # nuxt3 の generate 結果置き場
-Emer.IntwcApi/Emer.IntwcApi.Web/wwwroot
+app.db
+app.db-shm
+app.db-wal
