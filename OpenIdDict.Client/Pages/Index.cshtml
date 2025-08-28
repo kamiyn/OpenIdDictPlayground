@@ -1,0 +1,35 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome to OpenIddict Client</h1>
+    
+    @if (User.Identity?.IsAuthenticated == true)
+    {
+        <div class="alert alert-success">
+            <h4>Hello, @User.Identity.Name!</h4>
+            <p>You are successfully authenticated via OpenIddict.</p>
+            
+            <h5>Your Claims:</h5>
+            <ul class="list-unstyled">
+                @foreach (var claim in User.Claims)
+                {
+                    <li><strong>@claim.Type:</strong> @claim.Value</li>
+                }
+            </ul>
+            
+            <a asp-area="" asp-page="/Account/Logout" class="btn btn-warning">Logout</a>
+        </div>
+    }
+    else
+    {
+        <div class="alert alert-info">
+            <h4>You are not authenticated</h4>
+            <p>Please login to access protected resources.</p>
+            <a asp-area="" asp-page="/Account/Login" class="btn btn-primary">Login</a>
+        </div>
+    }
+</div>
